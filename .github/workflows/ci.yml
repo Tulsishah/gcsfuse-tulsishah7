@@ -8,6 +8,9 @@ on:
     branches:
       - '*'
 
+env:
+  SECRET_KEY: ${{ secret.GCP_SA_KEY }}
+
 jobs:
   linux-tests:
     strategy:
@@ -22,6 +25,7 @@ jobs:
       uses: actions/setup-go@v2.1.4
       with:
         go-version: ${{ matrix.go }}
+
     - name: Install fuse
       run: sudo apt-get update && sudo apt-get install -y fuse3 libfuse-dev
     - name: Build
