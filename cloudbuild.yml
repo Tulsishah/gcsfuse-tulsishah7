@@ -1,0 +1,6 @@
+    steps:
+    - name: Install fuse
+      args: ['install','sudo apt-get update && sudo apt-get install -y fuse3 libfuse-dev']
+
+    options:
+      logging: CLOUD_LOGGING_ONLY
