@@ -1,21 +1,3 @@
-name: cloudbuild
-
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - '*'
-
-jobs:
-  linux-tests:
-    strategy:
-      matrix:
-        go: [1.19.x]
-    runs-on: ubuntu-20.04
-    timeout-minutes: 10
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Go ${{ matrix.go }}
@@ -31,19 +13,3 @@ jobs:
         build_gcsfuse . /tmp ${GITHUB_SHA}
     - name: Test
       run: go test -p 1 -count 1 -v -cover ./...
-  lint:
-    name: Lint
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Setup Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.19
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: golangci-lint
-      uses: golangci/golangci-lint-action@032fa5c5e48499f06cf9d32c02149bfac1284239
-      with:
-        args: -E=goimports
-        only-new-issues: true
-
