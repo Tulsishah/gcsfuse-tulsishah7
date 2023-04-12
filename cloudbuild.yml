@@ -1,9 +1,4 @@
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/setup-go@v2.1.4
-      with:
-        go-version: ${{ matrix.go }}
     - name: Install fuse
       run: sudo apt-get update && sudo apt-get install -y fuse3 libfuse-dev
     - name: Build
