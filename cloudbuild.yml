@@ -1,10 +1,7 @@
     steps:
     - name: Install fuse
-      run: sudo apt-get update && sudo apt-get install -y fuse3 libfuse-dev
+      args: ['install','sudo apt-get update && sudo apt-get install -y fuse3 libfuse-dev']
     - name: Build
-      run: |
-        go build ./...
-        go install ./tools/build_gcsfuse
-        build_gcsfuse . /tmp ${GITHUB_SHA}
+      args: ['go build ./...', 'go install ./tools/build_gcsfuse', 'build_gcsfuse . /tmp ${GITHUB_SHA}']
     - name: Test
-      run: go test -p 1 -count 1 -v -cover ./...
+      args: ['go test -p 1 -count 1 -v -cover ./...']
