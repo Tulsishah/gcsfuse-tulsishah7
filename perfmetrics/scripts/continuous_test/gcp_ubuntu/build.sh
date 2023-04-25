@@ -6,7 +6,7 @@ echo Installing git
 sudo apt-get install git
 echo Installing pip
 sudo apt-get install pip -y
-echo Installing go-lang 1.19.7
+echo Installing go-lang 1.20.3
 wget -O go_tar.tar.gz https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && tar -xzf go_tar.tar.gz && sudo mv go /usr/local
 export PATH=$PATH:/usr/local/go/bin
