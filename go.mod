@@ -1,6 +1,6 @@
 module github.com/googlecloudplatform/gcsfuse
 
-go 1.19
+go 1.20
 
 require (
 	cloud.google.com/go/storage v1.29.0
@@ -61,3 +61,7 @@ require (
 	google.golang.org/grpc v1.51.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
+
+replace github.com/jacobsa/fuse => ../../FuseFork/fuse
+
+replace github.com/jacobsa/gcloud => ../../Gcloud/gcloud
