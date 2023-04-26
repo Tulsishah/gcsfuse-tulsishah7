@@ -44,5 +44,6 @@ jobs:
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v3
       with:
+        env: GO111MODULE=off
         args: -E=goimports
         only-new-issues: true
