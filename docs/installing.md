@@ -20,7 +20,7 @@ To install Cloud Storage FUSE for Ubuntu or Debian, follow the instructions belo
 
 3. Cloud Storage FUSE updates can be installed by:
 
-        sudo apt-get update && sudo apt-get install –-only-upgrade gcsfuse
+        sudo apt-get update && sudo apt-get install --only-upgrade gcsfuse
 
 ## Install on CentOS or Red Hat
 
@@ -28,32 +28,44 @@ To install Cloud Storage FUSE for CentOS or Red Hat, follow the instructions bel
 
 1. Configure the Cloud Storage FUSE repository and its associated public key:
 
-        sudo tee /etc/yum.repos.d/gcsfuse.repo > /dev/null <<EOF
-        [gcsfuse]
-        name=gcsfuse (packages.cloud.google.com)
-        baseurl=https://packages.cloud.google.com/yum/repos/gcsfuse-el7-x86_64
-        enabled=1
-        gpgcheck=1
-        repo_gpgcheck=0
-        gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
-               https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-        EOF
+       sudo tee /etc/yum.repos.d/gcsfuse.repo > /dev/null <<EOF
+       [gcsfuse]
+       name=gcsfuse (packages.cloud.google.com)
+       baseurl=https://packages.cloud.google.com/yum/repos/gcsfuse-el7-x86_64
+       enabled=1
+       gpgcheck=1
+       repo_gpgcheck=0
+       gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+              https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+       EOF
 
 2. Install Cloud Storage FUSE using the YUM Linux package manager:
 
-        sudo yum install gcsfuse
+       sudo yum install gcsfuse
 
    Be sure to answer "yes" to any questions about adding the GPG signing key.
 
-# Install by building the binaries from source
+## Install gcsfuse by building the latest source code:
+Make sure you have `fuse`, `git` and `go` (the newest version specified in [go.mod](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/go.mod)) installed on the system.
 
-To install Cloud Storage FUSE by building the binaries from source, follow the instructions below:
+### Method 1: Using the go install command directly
+Install gcsfuse directly using the below command:
+```
+go install github.com/googlecloudplatform/gcsfuse@master
+```
 
-1. Make sure you have a working Go installation, the newest version specified in [go.mod](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/go.mod). See Installing Go from source.
-2. [Fuse](https://github.com/libfuse/libfuse). See the instructions for the binary release above.
-3. Make sure you have the Git command-line tool installed. This is probably available as ```git``` in your package manager.
-4. To install or update Cloud Storage FUSE, run the following command
+### Method 2: By cloning the git repo
+1. Clone the repo using:
+```
+git clone https://github.com/GoogleCloudPlatform/gcsfuse.git
+```
+2. Change to repo directory:
+```
+cd gcsfuse
+```
+3. Install gcsfuse:
+```
+go install .
+```
 
-       GO111MODULE=auto go get -u github.com/googlecloudplatform/gcsfuse
-
-This will fetch the latest Cloud Storage FUSE sources to ```$GOPATH/src/github.com/googlecloudplatform/gcsfuse```, build the sources, and then install a binary named gcsfuse to ```$GOPATH/bin```.
+**Note:** In both cases, a binary named `gcsfuse` will be installed to `$GOPATH/bin`.

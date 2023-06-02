@@ -20,7 +20,11 @@ import (
 	"path"
 	"testing"
 
+<<<<<<< HEAD
 	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/setup"
+=======
+	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
+>>>>>>> 5cd3ae932513b5eacf6ff47dc4632ea4612dadae
 )
 
 func statObject(objPath string, t *testing.T) (file os.FileInfo) {

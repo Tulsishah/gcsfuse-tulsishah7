@@ -7,9 +7,26 @@
         gcloud auth login
         gcloud auth list
 
-   Alternatively, you can authenticate Cloud Storage FUSE by setting the ```--key-file``` flag to the path of a JSON key file, which you can download from the Google Cloud console. You can also set the ```GOOGLE_APPLICATION_CREDENTIALS``` environment variable to the path of the JSON key.
+   Alternatively, you can authenticate Cloud Storage FUSE using a service account
+key.
 
-        GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json gcsfuse [...]
+   - [Create a service account](https://cloud.google.com/iam/docs/service-accounts-create)
+  with one of the following roles:
+
+     * `Storage Object Viewer (roles/storage.objectViewer)` role to mount a
+    bucket with read-only permissions.
+     * `Storage Object Admin (roles/storage.objectAdmin)` role to mount a bucket with read-write permissions.
+
+   - [Create and download the service account key](https://cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console)
+  and set the ```--key-file``` flag to the path of the downloaded JSON key file while
+  mounting the bucket.
+
+           gcsfuse --key-file <path to service account key> [bucket] /path/to/mount/point
+
+  You can also set the ```GOOGLE_APPLICATION_CREDENTIALS``` environment
+  variable to the path of the JSON key.
+
+           GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json gcsfuse [...]
 When mounting with an fstab entry, use the key_file option:
 
     my-bucket /mount/point gcsfuse rw,noauto,user,key_file=/path/to/key.json
@@ -168,7 +185,7 @@ Type ```gcsfuse --help``` to see the full list:
 | --type-cache-ttl value                               | How long to cache name -> file/dir mappings in directory inodes. (default: 1m0s)                                                                                                                                                                                                                                                                                                             |
 | --max-retry-duration value                           | The operation will be retried till the value of max-retry-duration. (default: 30s)                                                                                                                                                                                                                                                                                                           |
 | --retry-multiplier value                             | Param for exponential backoff algorithm, which is used to increase waiting time b/w two consecutive retries. (default: 2)                                                                                                                                                                                                                                                                    |
-| --http-client-timeout value                          | The time duration that http client will wait to get response from the server. The default value 0 indicates no timeout.  (default: 0s)                                                                                                                                                                                                                                                                                                 |
+| --http-client-timeout value                          | The time duration that http client will wait to get response from the server. The default value 0 indicates no timeout.  (default: 0s)                                                                                                                                                                                                                                                       |
 | --experimental-local-file-cache                      | Experimental: Cache GCS files on local disk for reads.                                                                                                                                                                                                                                                                                                                                       |
 | --temp-dir value                                     | Path to the temporary directory where writes are staged prior to upload to Cloud Storage. (default: system default, likely /tmp)                                                                                                                                                                                                                                                             |
 | --client-protocol value                              | The protocol used for communicating with the GCS backend. Value can be 'http1' (HTTP/1.1) or 'http2' (HTTP/2). (default: http1)                                                                                                                                                                                                                                                              |
@@ -181,7 +198,7 @@ Type ```gcsfuse --help``` to see the full list:
 | --log-format value                                   | The format of the log file: 'text' or 'json'. (default: "json")                                                                                                                                                                                                                                                                                                                              |
 | --debug_fuse_errors                                  | If false, fuse errors will not be logged to the console (in case of --foreground) or the log-file (if specified)                                                                                                                                                                                                                                                                             |
 | --debug_fuse                                         | Enable fuse-related debugging output.                                                                                                                                                                                                                                                                                                                                                        |
-| --debug_fs                                           | Enable file system debugging output.                                                                                                                                                                                                                                                                                                                                                         |
+| --debug_fs                                           | This flag is currently unused.                                                                                                                                                                                                                                                                                                                                                               |
 | --debug_gcs                                          | Print GCS request and timing information.                                                                                                                                                                                                                                                                                                                                                    |
 | --debug_http                                         | Dump HTTP requests and responses to/from GCS, doesn't work when --enable-storage-client-library flag is true.                                                                                                                                                                                                                                                                                |
 | --debug_invariants                                   | Panic when internal invariants are violated.                                                                                                                                                                                                                                                                                                                                                 |
