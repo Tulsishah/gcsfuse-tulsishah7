@@ -18,9 +18,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/fake"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/fake"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
 	"github.com/jacobsa/timeutil"
 	"golang.org/x/net/context"
 )

@@ -21,8 +21,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/util"
 )
 
 // A directory containing outputs created by build_gcsfuse, set up and deleted

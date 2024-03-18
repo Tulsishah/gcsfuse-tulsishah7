@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/util"
 	"gopkg.in/yaml.v3"
 )
 

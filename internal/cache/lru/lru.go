@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
 )
 
 // Predefined error messages returned by the Cache.

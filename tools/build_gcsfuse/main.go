@@ -122,7 +122,7 @@ func buildBinaries(dstDir, srcDir, version string, buildArgs []string) (err erro
 			"bin/gcsfuse",
 		},
 		{
-			"github.com/Tulsishah/gcsfuse-tulsishah7/tools/mount_gcsfuse",
+			"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/mount_gcsfuse",
 			path.Join("sbin", mountHelperName),
 		},
 	}

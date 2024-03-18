@@ -20,15 +20,15 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/data"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/lru"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/util"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
-	testutil "github.com/Tulsishah/gcsfuse-tulsishah7/internal/util"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/data"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/lru"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	testutil "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
 	. "github.com/jacobsa/ogletest"
 	"golang.org/x/net/context"
 )

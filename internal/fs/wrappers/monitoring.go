@@ -21,8 +21,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/monitor/tags"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/monitor/tags"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"
 	"go.opencensus.io/plugin/ochttp"
