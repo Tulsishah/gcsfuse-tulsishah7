@@ -19,8 +19,8 @@ import (
 	"log"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/mounting"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/mounting"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/setup"
 )
 
 func MountGcsfuseWithStaticMounting(flags []string) (err error) {

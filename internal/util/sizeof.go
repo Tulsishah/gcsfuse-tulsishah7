@@ -17,7 +17,7 @@ package util
 import (
 	"reflect"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/googlecloudplatform/gcsfuse/v2/internal/storage/gcs"
 	"google.golang.org/api/googleapi"
 	storagev1 "google.golang.org/api/storage/v1"
 )

@@ -94,7 +94,7 @@ func buildBuildGcsfuse(dst string) (err error) {
 	{
 		var pkg *build.Package
 		pkg, err = build.Import(
-			"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/build_gcsfuse",
+			"github.com/googlecloudplatform/gcsfuse/v2/tools/build_gcsfuse",
 			"",
 			build.FindOnly)
 

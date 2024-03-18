@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
+	"github.com/googlecloudplatform/gcsfuse/v2/internal/gcsx"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"
 	"github.com/jacobsa/timeutil"

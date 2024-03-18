@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/operations"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/log_parser/json_parser/read_logs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/test_setup"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/log_parser/json_parser/read_logs"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/setup"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/test_setup"
 )
 
 ////////////////////////////////////////////////////////////////////////

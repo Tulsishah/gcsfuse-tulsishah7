@@ -27,8 +27,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/canned"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/util"
+	"github.com/googlecloudplatform/gcsfuse/v2/internal/canned"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/util"
 	"github.com/jacobsa/fuse/fusetesting"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"

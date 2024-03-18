@@ -21,7 +21,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/googlecloudplatform/gcsfuse/v2/tools/integration_tests/util/setup"
 )
 
 func TestListObjectsInBucket(t *testing.T) {

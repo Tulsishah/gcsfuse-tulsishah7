@@ -15,7 +15,7 @@
 package storageutil
 
 import (
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/googlecloudplatform/gcsfuse/v2/internal/storage/gcs"
 	"github.com/jacobsa/syncutil"
 	"golang.org/x/net/context"
 )
