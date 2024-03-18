@@ -15,7 +15,7 @@
 package gcsx
 
 import (
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
 )
 
 type SyncerBucket struct {

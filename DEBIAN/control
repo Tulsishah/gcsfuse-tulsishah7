@@ -1,7 +1,7 @@
 Version: 1.0.0
 Source: gcsfuse
 Maintainer: GCSFuse Team <gcs-fuse-maintainers@google.com>
-Homepage: https://github.com/GoogleCloudPlatform/gcsfuse
+Homepage: https://github.com/Tulsishah/gcsfuse-tulsishah7
 Package: gcsfuse
 Architecture: all
 Depends: fuse

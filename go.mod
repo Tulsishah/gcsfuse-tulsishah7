@@ -10,6 +10,7 @@ require (
 	github.com/fsouza/fake-gcs-server v1.47.8
 	github.com/google/uuid v1.6.0
 	github.com/googleapis/gax-go/v2 v2.12.1
+	github.com/Tulsishah/gcsfuse-tulsishah7/v2 v2.0.0
 	github.com/jacobsa/daemonize v0.0.0-20160101105449-e460293e890f
 	github.com/jacobsa/fuse v0.0.0-20231003132804-d0f3daf365c3
 	github.com/jacobsa/oglematchers v0.0.0-20150720000706-141901ea67cd
@@ -53,6 +54,7 @@ require (
 	github.com/gorilla/handlers v1.5.2 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2 // indirect
+	github.com/jacobsa/util v0.0.0-20150810040848-976a6f4de67e // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/pkg/xattr v0.4.9 // indirect
 	github.com/prometheus/prometheus v0.35.0 // indirect
@@ -70,6 +72,3 @@ require (
 	google.golang.org/grpc v1.61.1 // indirect
 	google.golang.org/protobuf v1.32.0 // indirect
 )
-
-// Retracted un-release version
-retract v1.0.0

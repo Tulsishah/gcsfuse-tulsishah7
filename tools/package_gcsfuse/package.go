@@ -38,7 +38,7 @@ func packageFpm(
 		"-d", "fuse",
 		"--vendor", "",
 		"--maintainer", "GCSFuse dev <gcs-fuse-dev@google.com>",
-		"--url", "https://github.com/googlecloudplatform/gcsfuse",
+		"--url", "https://github.com/Tulsishah/gcsfuse-tulsishah7",
 		"--description", "A user-space file system for interacting with Google Cloud Storage.",
 	)
 

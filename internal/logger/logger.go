@@ -23,7 +23,7 @@ import (
 	"os"
 	"runtime/debug"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/config"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 

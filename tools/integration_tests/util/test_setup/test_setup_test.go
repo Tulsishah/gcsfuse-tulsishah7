@@ -17,8 +17,8 @@ package test_setup_test
 import (
 	"testing"
 
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/test_setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/test_setup"
 	. "github.com/jacobsa/ogletest"
 )
 

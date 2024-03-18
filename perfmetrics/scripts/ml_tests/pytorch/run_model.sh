@@ -23,7 +23,7 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go_tar.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 
 # Clone and build the gcsfuse master branch.
-git clone https://github.com/GoogleCloudPlatform/gcsfuse.git
+git clone https://github.com/Tulsishah/gcsfuse-tulsishah7.git
 cd gcsfuse
 CGO_ENABLED=0 go build .
 cd -

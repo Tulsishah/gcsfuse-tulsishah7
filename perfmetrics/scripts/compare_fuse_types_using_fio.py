@@ -32,7 +32,7 @@ from fio import fio_metrics
 
 from absl import app
 
-GCSFUSE_REPO = 'https://github.com/GoogleCloudPlatform/gcsfuse'
+GCSFUSE_REPO = 'https://github.com/Tulsishah/gcsfuse-tulsishah7'
 GCSFUSE_FLAGS="--implicit-dirs --max-conns-per-host 100"
 
 
@@ -44,7 +44,7 @@ def _install_gcsfuse(version, gcs_bucket, gcsfuse_flags) -> None:
     gcs_bucket(str): GCS bucket to be mounted.
     gcsfuse_flags(str): Fuse flags for mounting the GCS bucket.
   """
-  os.system(f'''curl -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v{version}/gcsfuse_{version}_amd64.deb
+  os.system(f'''curl -L -O https://github.com/Tulsishah/gcsfuse-tulsishah7/v2/releases/download/v{version}/gcsfuse_{version}_amd64.deb
             sudo dpkg --install gcsfuse_{version}_amd64.deb
             mkdir gcs
             gcsfuse {gcsfuse_flags} {gcs_bucket} gcs

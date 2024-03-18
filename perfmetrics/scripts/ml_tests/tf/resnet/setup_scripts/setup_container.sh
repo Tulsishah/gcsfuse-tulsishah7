@@ -10,7 +10,7 @@ sudo rm -rf /usr/local/go && tar -xzf go_tar.tar.gz && sudo mv go /usr/local
 export PATH=$PATH:/usr/local/go/bin
 
 # Clone the repo and build gcsfuse
-git clone "https://github.com/GoogleCloudPlatform/gcsfuse.git"
+git clone "https://github.com/Tulsishah/gcsfuse-tulsishah7.git"
 cd gcsfuse
 CGO_ENABLED=0 go build .
 cd -

@@ -20,15 +20,15 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/data"
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/lru"
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/util"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
-	testutil "github.com/googlecloudplatform/gcsfuse/internal/util"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/data"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/lru"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	testutil "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
 	. "github.com/jacobsa/ogletest"
 	"golang.org/x/net/context"
 )
