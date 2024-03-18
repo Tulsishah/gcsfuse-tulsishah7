@@ -18,8 +18,8 @@ package local_file_test
 import (
 	"testing"
 
-	. "github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/client"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
+	. "github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/client"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 func TestReadLocalFile(t *testing.T) {
