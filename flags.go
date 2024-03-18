@@ -22,11 +22,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
-	"github.com/googlecloudplatform/gcsfuse/internal/logger"
-	"github.com/googlecloudplatform/gcsfuse/internal/mount"
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
-	"github.com/googlecloudplatform/gcsfuse/internal/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/util"
 	"github.com/urfave/cli"
 )
 

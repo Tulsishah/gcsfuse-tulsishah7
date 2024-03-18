@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
-	"github.com/googlecloudplatform/gcsfuse/internal/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/util"
 
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
 	. "github.com/jacobsa/ogletest"
 )
 

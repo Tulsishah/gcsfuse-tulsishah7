@@ -12,8 +12,8 @@ import (
 	time "time"
 	unsafe "unsafe"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/metadata"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/metadata"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
 	oglemock "github.com/jacobsa/oglemock"
 )
 

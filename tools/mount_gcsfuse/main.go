@@ -61,7 +61,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
 )
 
 // Turn mount-style options into gcsfuse arguments. Skip known detritus that

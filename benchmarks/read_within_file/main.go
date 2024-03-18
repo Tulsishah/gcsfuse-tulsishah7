@@ -24,7 +24,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/benchmarks/internal/format"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/benchmarks/internal/format"
 )
 
 var fFile = flag.String("file", "", "Path to file to read.")

@@ -18,7 +18,7 @@ import (
 	"net/url"
 	"time"
 
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
 )
 
 const CustomEndpoint = "https://localhost:9000"
