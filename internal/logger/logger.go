@@ -24,7 +24,7 @@ import (
 	"os"
 	"runtime/debug"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
 )
 
 // Syslog file contains logs from all different programmes running on the VM.

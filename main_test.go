@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
 	. "github.com/jacobsa/ogletest"
 )
 

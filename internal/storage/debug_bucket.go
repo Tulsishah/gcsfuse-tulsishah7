@@ -20,8 +20,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/logger"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"golang.org/x/net/context"
 )
 

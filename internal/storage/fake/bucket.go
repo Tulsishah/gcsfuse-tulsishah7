@@ -27,7 +27,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"github.com/jacobsa/syncutil"
 	"github.com/jacobsa/timeutil"
 )

@@ -22,13 +22,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/contentcache"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/fake"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/storageutil"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/contentcache"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/fake"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
 	"golang.org/x/net/context"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"
 	. "github.com/jacobsa/oglematchers"

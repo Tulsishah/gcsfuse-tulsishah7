@@ -20,10 +20,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/fake"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/fake"
 	"golang.org/x/net/context"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
 	"github.com/jacobsa/fuse/fuseops"
 	. "github.com/jacobsa/ogletest"
 	"github.com/jacobsa/timeutil"

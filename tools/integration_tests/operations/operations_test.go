@@ -20,13 +20,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/creds_tests"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/mounting/dynamic_mounting"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/mounting/only_dir_mounting"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/mounting/persistent_mounting"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/mounting/static_mounting"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/creds_tests"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/mounting/dynamic_mounting"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/mounting/only_dir_mounting"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/mounting/persistent_mounting"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/mounting/static_mounting"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 const MoveFile = "move.txt"

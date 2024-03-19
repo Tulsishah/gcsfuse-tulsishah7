@@ -18,8 +18,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/caching"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/caching"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	. "github.com/jacobsa/ogletest"
 )
 

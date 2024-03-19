@@ -21,12 +21,12 @@ import (
 	"path"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/canned"
-	"github.com/googlecloudplatform/gcsfuse/internal/monitor"
-	"github.com/googlecloudplatform/gcsfuse/internal/ratelimit"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/caching"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/canned"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/monitor"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/ratelimit"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/caching"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"github.com/jacobsa/timeutil"
 )
 

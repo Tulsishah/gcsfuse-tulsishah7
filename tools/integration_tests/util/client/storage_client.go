@@ -22,7 +22,7 @@ import (
 	"strings"
 
 	"cloud.google.com/go/storage"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 func separateBucketAndObjectName(bucket, object *string) {

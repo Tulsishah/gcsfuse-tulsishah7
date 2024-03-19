@@ -21,8 +21,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
-	"github.com/googlecloudplatform/gcsfuse/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
 )
 
 const GCSFUSE_PARENT_PROCESS_DIR = "gcsfuse-parent-process-dir"

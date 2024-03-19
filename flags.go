@@ -22,8 +22,8 @@ import (
 	"strings"
 	"time"
 
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
-	"github.com/googlecloudplatform/gcsfuse/internal/util"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/util"
 	"github.com/urfave/cli"
 )
 

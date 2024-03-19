@@ -19,8 +19,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/monitor/tags"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/monitor/tags"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"go.opencensus.io/stats"
 	"go.opencensus.io/stats/view"
 	"go.opencensus.io/tag"

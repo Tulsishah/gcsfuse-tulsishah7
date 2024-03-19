@@ -29,7 +29,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/ratelimit"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/ratelimit"
 	"golang.org/x/net/context"
 
 	. "github.com/jacobsa/oglematchers"

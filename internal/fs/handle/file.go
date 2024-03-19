@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/fs/inode"
-	"github.com/googlecloudplatform/gcsfuse/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/fs/inode"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
 	"github.com/jacobsa/syncutil"
 	"golang.org/x/net/context"
 )

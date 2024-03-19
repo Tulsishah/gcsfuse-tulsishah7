@@ -26,7 +26,7 @@ ENV GOOS=linux
 ENV GO111MODULE=auto
 
 ARG GCSFUSE_VERSION
-ARG GCSFUSE_REPO="github.com/googlecloudplatform/gcsfuse/"
+ARG GCSFUSE_REPO="github.com/Tulsishah/gcsfuse-tulsishah7/"
 ENV GCSFUSE_PATH "$GOPATH/src/$GCSFUSE_REPO"
 RUN go get -d ${GCSFUSE_REPO}
 

@@ -21,8 +21,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/auth"
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/auth"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 )
