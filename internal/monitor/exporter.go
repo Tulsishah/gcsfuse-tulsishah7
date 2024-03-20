@@ -21,7 +21,7 @@ import (
 
 	"contrib.go.opencensus.io/exporter/ocagent"
 	"contrib.go.opencensus.io/exporter/stackdriver"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
 	"go.opencensus.io/stats/view"
 )
 

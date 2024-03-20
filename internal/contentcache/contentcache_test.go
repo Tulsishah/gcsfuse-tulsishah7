@@ -22,7 +22,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/contentcache"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/contentcache"
 	"github.com/jacobsa/fuse/fsutil"
 	. "github.com/jacobsa/ogletest"
 	"github.com/jacobsa/timeutil"

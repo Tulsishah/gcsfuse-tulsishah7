@@ -24,12 +24,12 @@ import (
 	"time"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/storageutil"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/client"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/client"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 const tempFileName = "tmpFile"

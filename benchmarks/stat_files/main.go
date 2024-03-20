@@ -28,7 +28,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/benchmarks/internal/format"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/benchmarks/internal/format"
 	"github.com/jacobsa/fuse/fsutil"
 	"github.com/jacobsa/syncutil"
 )

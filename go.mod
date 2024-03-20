@@ -1,4 +1,4 @@
-module github.com/Tulsishah/gcsfuse-tulsishah7/v2
+module github.com/Tulsishah/gcsfuse-tulsishah7
 
 go 1.22.1
 

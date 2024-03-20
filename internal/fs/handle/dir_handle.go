@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/fs/inode"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/fs/inode"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/locker"
 	"github.com/jacobsa/fuse"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"

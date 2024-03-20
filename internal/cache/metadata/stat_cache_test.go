@@ -18,10 +18,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/lru"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/metadata"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/lru"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/metadata"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	. "github.com/jacobsa/ogletest"
 )
 

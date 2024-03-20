@@ -22,8 +22,8 @@ import (
 
 	"cloud.google.com/go/compute/metadata"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/mounting"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/mounting"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 const PrefixBucketForDynamicMountingTest = "gcsfuse-dynamic-mounting-test-"

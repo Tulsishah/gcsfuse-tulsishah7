@@ -18,15 +18,15 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/config"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage"
 	"golang.org/x/net/context"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/fs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/perms"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/fs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/perms"
 	"github.com/jacobsa/fuse"
 	"github.com/jacobsa/fuse/fsutil"
 	"github.com/jacobsa/timeutil"
@@ -106,23 +106,23 @@ be interacting with the file system.`)
 
 	// Create a file system server.
 	serverCfg := &fs.ServerConfig{
-		CacheClock:                  timeutil.RealClock(),
-		BucketManager:               bm,
-		BucketName:                  bucketName,
-		LocalFileCache:              flags.LocalFileCache,
-		DebugFS:                     flags.DebugFS,
-		TempDir:                     flags.TempDir,
-		ImplicitDirectories:         flags.ImplicitDirs,
-		InodeAttributeCacheTTL:      metadataCacheTTL,
-		DirTypeCacheTTL:             metadataCacheTTL,
-		Uid:                         uid,
-		Gid:                         gid,
-		FilePerms:                   os.FileMode(flags.FileMode),
-		DirPerms:                    os.FileMode(flags.DirMode),
-		RenameDirLimit:              flags.RenameDirLimit,
-		SequentialReadSizeMb:        flags.SequentialReadSizeMb,
-		EnableNonexistentTypeCache:  flags.EnableNonexistentTypeCache,
-		MountConfig:                 mountConfig,
+		CacheClock:                 timeutil.RealClock(),
+		BucketManager:              bm,
+		BucketName:                 bucketName,
+		LocalFileCache:             flags.LocalFileCache,
+		DebugFS:                    flags.DebugFS,
+		TempDir:                    flags.TempDir,
+		ImplicitDirectories:        flags.ImplicitDirs,
+		InodeAttributeCacheTTL:     metadataCacheTTL,
+		DirTypeCacheTTL:            metadataCacheTTL,
+		Uid:                        uid,
+		Gid:                        gid,
+		FilePerms:                  os.FileMode(flags.FileMode),
+		DirPerms:                   os.FileMode(flags.DirMode),
+		RenameDirLimit:             flags.RenameDirLimit,
+		SequentialReadSizeMb:       flags.SequentialReadSizeMb,
+		EnableNonexistentTypeCache: flags.EnableNonexistentTypeCache,
+		MountConfig:                mountConfig,
 	}
 
 	logger.Infof("Creating a new server...\n")

@@ -27,8 +27,8 @@ import (
 	"net/http"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/storageutil"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
 	"google.golang.org/api/googleapi"
 	"google.golang.org/api/iterator"
 )

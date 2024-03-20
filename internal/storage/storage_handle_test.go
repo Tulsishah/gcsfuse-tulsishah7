@@ -19,8 +19,8 @@ import (
 	"net/url"
 	"testing"
 
-	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/storageutil"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
 	"github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"
 )
