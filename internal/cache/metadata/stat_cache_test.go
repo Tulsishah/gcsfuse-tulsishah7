@@ -18,10 +18,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/lru"
-	"github.com/googlecloudplatform/gcsfuse/internal/cache/metadata"
-	"github.com/googlecloudplatform/gcsfuse/internal/mount"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/lru"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/metadata"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	. "github.com/jacobsa/ogletest"
 )
 

@@ -30,10 +30,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/storageutil"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/fs/inode"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/fs/inode"
 	"github.com/jacobsa/fuse/fusetesting"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"

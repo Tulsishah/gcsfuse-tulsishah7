@@ -21,8 +21,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/fake"
-	"github.com/googlecloudplatform/gcsfuse/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/fake"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"golang.org/x/net/context"
 
 	"github.com/jacobsa/timeutil"

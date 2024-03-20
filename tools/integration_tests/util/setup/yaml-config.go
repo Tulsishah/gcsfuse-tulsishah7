@@ -5,7 +5,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
 	"gopkg.in/yaml.v3"
 )
 

@@ -23,8 +23,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/operations"
-	"github.com/googlecloudplatform/gcsfuse/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 const SrcMoveDirectory = "srcMoveDir"
