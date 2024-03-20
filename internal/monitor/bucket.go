@@ -20,9 +20,9 @@ import (
 	"io"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/monitor/tags"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/monitor/tags"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	"go.opencensus.io/plugin/ochttp"
 	"go.opencensus.io/stats"
 	"go.opencensus.io/stats/view"

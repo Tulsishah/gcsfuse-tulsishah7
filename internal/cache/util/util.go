@@ -23,7 +23,7 @@ import (
 
 	"github.com/jacobsa/fuse/fsutil"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/data"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/data"
 )
 
 const (

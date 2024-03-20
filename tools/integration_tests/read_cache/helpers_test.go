@@ -25,10 +25,10 @@ import (
 	"time"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/client"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/log_parser/json_parser/read_logs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/client"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/log_parser/json_parser/read_logs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 // Expected is a helper struct that stores list of attributes to be validated from logs.

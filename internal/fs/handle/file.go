@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/file"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/fs/inode"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/file"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/fs/inode"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
 	"github.com/jacobsa/syncutil"
 	"golang.org/x/net/context"
 )

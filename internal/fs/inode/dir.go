@@ -21,11 +21,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/metadata"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/storageutil"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/metadata"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"
 	"github.com/jacobsa/syncutil"
@@ -220,16 +220,16 @@ func NewDirInode(
 	}
 
 	typed := &dirInode{
-		bucket:                     bucket,
-		mtimeClock:                 mtimeClock,
-		cacheClock:                 cacheClock,
-		id:                         id,
-		implicitDirs:               implicitDirs,
+		bucket:                      bucket,
+		mtimeClock:                  mtimeClock,
+		cacheClock:                  cacheClock,
+		id:                          id,
+		implicitDirs:                implicitDirs,
 		enableManagedFoldersListing: enableManagedFoldersListing,
-		enableNonexistentTypeCache: enableNonexistentTypeCache,
-		name:                       name,
-		attrs:                      attrs,
-		cache:                      metadata.NewTypeCache(typeCacheMaxSizeMB, typeCacheTTL),
+		enableNonexistentTypeCache:  enableNonexistentTypeCache,
+		name:                        name,
+		attrs:                       attrs,
+		cache:                       metadata.NewTypeCache(typeCacheMaxSizeMB, typeCacheTTL),
 	}
 
 	typed.lc.Init(id)

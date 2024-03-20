@@ -28,8 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/util"
 )
 
 var testBucket = flag.String("testbucket", "", "The GCS bucket used for the test.")

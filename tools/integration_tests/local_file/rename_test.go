@@ -21,9 +21,9 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/client"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/operations"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/integration_tests/util/setup"
+	. "github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/client"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/operations"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/tools/integration_tests/util/setup"
 )
 
 ////////////////////////////////////////////////////////////////////////

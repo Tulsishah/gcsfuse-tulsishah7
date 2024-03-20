@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/config"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/config"
 )
 
 const (

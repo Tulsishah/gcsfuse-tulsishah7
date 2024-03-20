@@ -20,8 +20,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/fake"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/fake"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"
 	"github.com/jacobsa/timeutil"

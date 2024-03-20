@@ -22,7 +22,7 @@ import (
 	"syscall"
 
 	"cloud.google.com/go/storage"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"
 	"google.golang.org/api/googleapi"

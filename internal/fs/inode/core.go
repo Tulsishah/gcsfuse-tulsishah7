@@ -17,9 +17,9 @@ package inode
 import (
 	"fmt"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/metadata"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/metadata"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 )
 
 // Core contains critical information about an inode before its creation.

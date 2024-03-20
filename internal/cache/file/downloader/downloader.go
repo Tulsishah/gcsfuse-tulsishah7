@@ -17,11 +17,11 @@ package downloader
 import (
 	"os"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/data"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/lru"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/cache/util"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/locker"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/data"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/lru"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/cache/util"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/locker"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
 )
 
 // JobManager is responsible for maintaining, getting and removing file download
