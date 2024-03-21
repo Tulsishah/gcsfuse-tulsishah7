@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
 )
 
 var gEnableInvariantsCheck bool

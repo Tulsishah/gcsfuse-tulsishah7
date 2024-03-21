@@ -15,7 +15,7 @@
 package storage
 
 import (
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/gcs"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/gcs"
 	"github.com/fsouza/fake-gcs-server/fakestorage"
 )
 

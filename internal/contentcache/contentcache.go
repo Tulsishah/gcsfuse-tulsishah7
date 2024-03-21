@@ -26,8 +26,8 @@ import (
 	"regexp"
 	"sync"
 
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/gcsx"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/logger"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/gcsx"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/logger"
 	"github.com/jacobsa/timeutil"
 )
 

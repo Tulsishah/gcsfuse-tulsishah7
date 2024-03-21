@@ -53,7 +53,7 @@ func BuildGcsfuse(dstDir string) (err error) {
 	{
 		var pkg *build.Package
 		pkg, err = build.Import(
-			"github.com/Tulsishah/gcsfuse-tulsishah7",
+			"github.com/Tulsishah/gcsfuse-tulsishah7/v2",
 			"",
 			build.FindOnly)
 
@@ -94,7 +94,7 @@ func buildBuildGcsfuse(dst string) (err error) {
 	{
 		var pkg *build.Package
 		pkg, err = build.Import(
-			"github.com/Tulsishah/gcsfuse-tulsishah7/tools/build_gcsfuse",
+			"github.com/Tulsishah/gcsfuse-tulsishah7/v2/tools/build_gcsfuse",
 			"",
 			build.FindOnly)
 

@@ -19,8 +19,8 @@ import (
 	"net/http"
 
 	"cloud.google.com/go/storage"
-	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/internal/mount"
-	"github.com/Tulsishah/gcsfuse-tulsishah7/internal/storage/storageutil"
+	mountpkg "github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/mount"
+	"github.com/Tulsishah/gcsfuse-tulsishah7/v2/internal/storage/storageutil"
 	"github.com/googleapis/gax-go/v2"
 	"golang.org/x/net/context"
 	option "google.golang.org/api/option"
