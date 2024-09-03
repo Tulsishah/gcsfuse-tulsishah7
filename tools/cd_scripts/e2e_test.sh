@@ -120,8 +120,8 @@ go version |& tee -a ~/logs.txt
 
 # Clone and checkout gcsfuse repo
 export PATH=${PATH}:/usr/local/go/bin
-git clone https://github.com/googlecloudplatform/gcsfuse |& tee -a ~/logs.txt
-cd gcsfuse
+git clone https://github.com/googlecloudplatform/gcsfuse-tulsishah7 |& tee -a ~/logs.txt
+cd gcsfuse-tulsishah7
 
 # Installation of crcmod is working through pip only on rhel and centos.
 # For debian and ubuntu, we are installing through sudo apt.

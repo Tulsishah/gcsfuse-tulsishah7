@@ -83,8 +83,8 @@ echo Install git
 sudo apt-get install git -y
 # It is require for multi-arch support
 sudo apt-get install qemu-user-static binfmt-support
-git clone https://github.com/GoogleCloudPlatform/gcsfuse.git
-cd gcsfuse/tools/package_gcsfuse_docker/
+git clone https://github.com/Tulsishah/gcsfuse-tulsishah7
+cd gcsfuse-tulsishah7/tools/package_gcsfuse_docker/
 # Setting set +e to capture error output in log file and send it on the bucket.
 set +e
 exit_code=0
@@ -111,8 +111,8 @@ exit_in_failure
 set -e
 # Below steps are taking less than one second, so we are not parallelising them.
 # Copy packages from docket container to disk.
-sudo docker run  -v $HOME/gcsfuse/release:/release gcsfuse-release-amd64:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
-sudo docker run  -v $HOME/gcsfuse/release:/release gcsfuse-release-arm64:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
+sudo docker run  -v $HOME/gcsfuse-tulsishah7/release:/release gcsfuse-release-amd64:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
+sudo docker run  -v $HOME/gcsfuse-tulsishah7/release:/release gcsfuse-release-arm64:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
 
 echo "Upload files in the bucket ..."
-gsutil cp -r $HOME/gcsfuse/release/v"$RELEASE_VERSION" gs://"$UPLOAD_BUCKET"/
+gsutil cp -r $HOME/gcsfuse-tulsishah7/release/v"$RELEASE_VERSION" gs://"$UPLOAD_BUCKET"/
