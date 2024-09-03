@@ -29,7 +29,7 @@ ARG GCSFUSE_VERSION
 ARG GCSFUSE_REPO="https://github.com/Tulsishah/gcsfuse-tulsishah7"
 ARG BRANCH_NAME="v${GCSFUSE_VERSION}"
 RUN git clone ${GCSFUSE_REPO} 
-ARG GCSFUSE_PATH=${GOPATH}/gcsfuse
+ARG GCSFUSE_PATH=${GOPATH}/gcsfuse-tulsishah7
 WORKDIR ${GCSFUSE_PATH}
 RUN git checkout ${BRANCH_NAME}
 
@@ -45,7 +45,7 @@ RUN if [ "${ARCHITECTURE}" != "amd64" ] && [ "${ARCHITECTURE}" != "arm64" ]; the
     exit 1; \
 fi
 ARG GCSFUSE_BIN="/gcsfuse_${GCSFUSE_VERSION}_${ARCHITECTURE}"
-ARG GCSFUSE_DOC="${GCSFUSE_BIN}/usr/share/doc/gcsfuse"
+ARG GCSFUSE_DOC="${GCSFUSE_BIN}/usr/share/doc/gcsfuse-tulsishah7"
 WORKDIR ${GCSFUSE_PATH}/tools/build_gcsfuse
 RUN go install
 RUN mkdir -p ${GCSFUSE_BIN}
@@ -59,7 +59,7 @@ RUN mv ${GCSFUSE_BIN}/DEBIAN/copyright ${GCSFUSE_DOC} &&  \
     mv ${GCSFUSE_BIN}/DEBIAN/changelog ${GCSFUSE_DOC} && \
     mv ${GCSFUSE_BIN}/DEBIAN/gcsfuse-docs.docs ${GCSFUSE_DOC}
 # Update gcsfuse version in changelog and control file
-RUN sed -i "1s/.*/gcsfuse (${GCSFUSE_VERSION}) stable; urgency=medium/" ${GCSFUSE_DOC}/changelog && \
+RUN sed -i "1s/.*/gcsfuse-tulsishah7 (${GCSFUSE_VERSION}) stable; urgency=medium/" ${GCSFUSE_DOC}/changelog && \
     sed -i "1s/.*/Version: ${GCSFUSE_VERSION}/" ${GCSFUSE_BIN}/DEBIAN/control
 
 # Update ARCHITECTURE in control file.
