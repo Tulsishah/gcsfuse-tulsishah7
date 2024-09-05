@@ -145,12 +145,12 @@ GODEBUG=asyncpreemptoff=1 CGO_ENABLED=0 go test ./tools/integration_tests/... -p
 pid_flat=$!
 
 wait $pid_hns
-e2e_tests_hns_bucket_status=$?
+hns_bucket_status=$?
 
 wait $pid_flat
-e2e_tests_flat_bucket_status=$?
+flat_bucket_status=$?
 
-if [ $pid_hns -ne 0 ];
+if [ $hns_bucket_status -ne 0 ];
 then
     echo "Test failures detected" &>> ~/logs-hns.txt
 else
@@ -159,7 +159,7 @@ else
 fi
 gsutil cp ~/logs-hns.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)-hns/
 
-if [ $pid_flat -ne 0 ];
+if [ $flat_bucket_status -ne 0 ];
 then
     echo "Test failures detected" &>> ~/logs.txt
 else
