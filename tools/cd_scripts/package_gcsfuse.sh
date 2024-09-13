@@ -46,14 +46,6 @@ function fetch_meta_data_value() {
   echo $value
 }
 
-# Function to check docker build failure.
-function check_docker_build_failure() {
-    if [[ $? -ne 0 ]]; then
-      echo "docker build fails."
-      exit_code=1
-    fi
-}
-
 architecture=$(dpkg --print-architecture)
 # Fetch metadata value of the key "RELEASE_VERSION"
 RELEASE_VERSION=$(fetch_meta_data_value "RELEASE_VERSION")
@@ -80,11 +72,9 @@ sudo apt-get install git -y
 sudo apt-get install qemu-user-static binfmt-support
 git clone https://github.com/Tulsishah/gcsfuse-tulsishah7
 cd gcsfuse-tulsishah7/tools/package_gcsfuse_docker/
-
 echo "Building docker for ${architecture} ..."
-sudo docker buildx build --load . -t gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" --build-arg GCSFUSE_VERSION="$RELEASE_VERSION" --build-arg ARCHITECTURE=${architecture} --build-arg BRANCH_NAME="v$RELEASE_VERSION_TAG"
-# Below steps are taking less than one second, so we are not parallelising them.
-# Copy packages from docket container to disk.
+sudo docker buildx build --load . -t gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" --build-arg GCSFUSE_VERSION="$RELEASE_VERSION" --build-arg ARCHITECTURE=${architecture} --build-arg BRANCH_NAME="v$RELEASE_VERSION_TAG" &> docker_${architecture}.log
+gsutil cp docker_${architecture}.log gs://"$UPLOAD_BUCKET"/v"$RELEASE_VERSION"/
 sudo docker run  -v $HOME/gcsfuse-tulsishah7/release:/release gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
 
 echo "Upload files in the bucket ..."
