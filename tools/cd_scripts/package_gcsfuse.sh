@@ -80,15 +80,9 @@ sudo apt-get install git -y
 sudo apt-get install qemu-user-static binfmt-support
 git clone https://github.com/Tulsishah/gcsfuse-tulsishah7
 cd gcsfuse-tulsishah7/tools/package_gcsfuse_docker/
-# Setting set +e to capture error output in log file and send it on the bucket.
-set +e
-exit_code=0
-echo "Building docker for ${architecture} ..."
-sudo docker buildx build --load . -t gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" --build-arg GCSFUSE_VERSION="$RELEASE_VERSION" --build-arg ARCHITECTURE=${architecture} --build-arg BRANCH_NAME="v$RELEASE_VERSION_TAG" &> docker_${architecture}.log
-echo "Waiting for build to complete ..."
-gsutil cp docker_${architecture}.log gs://"$UPLOAD_BUCKET"/v"$RELEASE_VERSION"/
 
-set -e
+echo "Building docker for ${architecture} ..."
+sudo docker buildx build --load . -t gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" --build-arg GCSFUSE_VERSION="$RELEASE_VERSION" --build-arg ARCHITECTURE=${architecture} --build-arg BRANCH_NAME="v$RELEASE_VERSION_TAG"
 # Below steps are taking less than one second, so we are not parallelising them.
 # Copy packages from docket container to disk.
 sudo docker run  -v $HOME/gcsfuse-tulsishah7/release:/release gcsfuse-release-${architecture}:"$RELEASE_VERSION_TAG" cp -r /packages/. /release/v"$RELEASE_VERSION"
