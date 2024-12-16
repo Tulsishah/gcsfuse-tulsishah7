@@ -285,6 +285,10 @@ function run_e2e_tests_for_hns_bucket(){
    return 0
 }
 
+function run_e2e_tests_for_emulator() {
+  ./tools/integration_tests/emulator_tests/emulator_tests.sh $RUN_E2E_TESTS_ON_PACKAGE
+}
+
 function gather_test_logs() {
   readarray -t test_logs_array < "$TEST_LOGS_FILE"
   rm "$TEST_LOGS_FILE"
@@ -313,6 +317,12 @@ echo "Running integration tests for FLAT bucket..."
 run_e2e_tests_for_flat_bucket &
 e2e_tests_flat_bucket_pid=$!
 
+run_e2e_tests_for_emulator &
+e2e_tests_emulator_pid=$!
+
+wait $e2e_tests_emulator_pid
+e2e_tests_emulator_status=$?
+
 wait $e2e_tests_flat_bucket_pid
 e2e_tests_flat_bucket_status=$?
 
@@ -337,5 +347,14 @@ else
     touch success-hns.txt
     gsutil cp success-hns.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
 fi
-gsutil cp ~/logs-hns.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
+
+if [ $e2e_tests_emulator_status != 0 ];
+then
+    echo "Test failures detected in emulator based tests." &>> ~/logs-emulator.txt
+else
+    touch success-emulator.txt
+    gsutil cp success-emulator.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
+fi
+
+gsutil cp ~/logs-emulator.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
 '
