@@ -18,21 +18,8 @@ set -x
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-# Todo: Remove once gcloud is packaged in SUSE images available on GCP
-# Add repo file for gcloud
-if `grep -iq sles /etc/os-release`;
-then
-  sudo echo """[google-cloud-cli]
-name=Google Cloud CLI
-baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el9-x86_64
-enabled=1
-gpgcheck=1
-repo_gpgcheck=0
-gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg""" > /etc/zypp/repos.d/google-cloud-sdk.repo
-
-  sudo zypper --gpg-auto-import-keys -n refresh
-fi
-
+#details.txt file contains the release version and commit hash of the current release.
+gsutil cp  gs://gcsfuse-release-packages/version-detail/details.txt .
 # Writing VM instance name to details.txt (Format: release-test-<os-name>)
 curl http://metadata.google.internal/computeMetadata/v1/instance/name -H "Metadata-Flavor: Google" >> details.txt
 
@@ -41,9 +28,6 @@ if grep -q ubuntu details.txt || grep -q debian details.txt;
 then
 #  For ubuntu and debian os
     sudo adduser --ingroup google-sudoers --disabled-password --home=/home/starterscriptuser --gecos "" starterscriptuser
-elif grep -q suse details.txt || grep -q sles details.txt;
-then
-    sudo useradd -m -g google-sudoers --home-dir=/home/starterscriptuser starterscriptuser
 else
 #  For rhel and centos
     sudo adduser -g google-sudoers --home-dir=/home/starterscriptuser starterscriptuser
@@ -56,62 +40,9 @@ set -e
 # Print commands and their arguments as they are executed.
 set -x
 
-# Determine architecture
-if grep -q ubuntu details.txt || grep -q debian details.txt;
-then
-  # architecture can be amd64 or arm64
-  architecture=$(dpkg --print-architecture)
-elif `grep -iq sles /etc/os-release` || grep -q rhel details.txt || grep -q centos details.txt;
-then
-  # uname can be aarch or x86_64
-  uname=$(uname -i)
-  if [[ $uname == "x86_64" ]];
-  then
-    architecture="amd64"
-  elif [[ $uname == "aarch64" ]];
-  then
-    architecture="arm64"
-  fi
-fi
-
-# Todo: Remove once gcloud is packaged in SUSE images available on GCP
-# Install gcloud
-if `grep -iq suse /etc/os-release`;
-then
-  if [[ $architecture == "arm64" ]];
-  then
-    # Create a temporary expect script
-    expect_script=$(mktemp)
-    cat <<EOF > "$expect_script"
-#!/usr/bin/expect -f
-
-spawn sudo zypper --gpg-auto-import-keys install google-cloud-sdk
-expect "Choose from above solutions by number or cancel \[1\/2\/c\/d\/\?\] \(c\): "
-send "2\r"
-expect "Continue? \[y\/n\/v\/...? shows all options\] (y): "
-send "y\r"
-expect eof
-EOF
-
-    # Make the expect script executable
-    sudo chmod +x "$expect_script"
-
-    # Run the expect script using expect
-    sudo expect "$expect_script"
-
-    # Remove the temporary expect script
-    sudo rm "$expect_script"
-  else
-    sudo zypper --gpg-auto-import-keys install -y google-cloud-sdk
-  fi
-fi
-
+#Copy details.txt to starterscriptuser home directory and create logs.txt
 cd ~/
-# details.txt file contains the release version and commit hash of the current release.
-gsutil cp  gs://gcsfuse-release-packages/version-detail/details.txt .
-# Writing VM instance name to details.txt (Format: release-test-<os-name>)
-curl http://metadata.google.internal/computeMetadata/v1/instance/name -H "Metadata-Flavor: Google" >> details.txt
-
+cp /details.txt .
 touch logs.txt
 touch logs-hns.txt
 
@@ -123,6 +54,9 @@ echo Current Working Directory: $(pwd)  &>> ~/logs.txt
 if grep -q ubuntu details.txt || grep -q debian details.txt;
 then
 #  For Debian and Ubuntu os
+    # architecture can be amd64 or arm64
+    architecture=$(dpkg --print-architecture)
+
     sudo apt update
 
     #Install fuse
@@ -146,29 +80,17 @@ then
 
     #install build-essentials
     sudo apt install -y build-essential
-elif grep -q sles details.txt;
-then
-#  For suse linux
-    sudo zypper refresh
-
-    #Install fuse
-    sudo zypper install -y fuse
-
-    #download and install gcsfuse rpm package
-    gsutil cp gs://gcsfuse-release-packages/v$(sed -n 1p details.txt)/gcsfuse-$(sed -n 1p details.txt)-1.${uname}.rpm .
-    sudo zypper --no-gpg-checks install -y gcsfuse-$(sed -n 1p details.txt)-1.${uname}.rpm
-    sudo cp /usr/bin/gcsfuse /bin/gcsfuse
-
-    #install wget
-    sudo zypper install -y wget
-
-    #install git
-    sudo zypper install -y git
-
-    #install Development tools
-    sudo zypper install -y gcc gcc-c++ make
 else
 #  For rhel and centos
+    # uname can be aarch or x86_64
+    uname=$(uname -i)
+
+    if [[ $uname == "x86_64" ]]; then
+      architecture="amd64"
+    elif [[ $uname == "aarch64" ]]; then
+      architecture="arm64"
+    fi
+
     sudo yum makecache
     sudo yum -y update
 
@@ -190,7 +112,7 @@ else
 fi
 
 # install go
-wget -O go_tar.tar.gz https://go.dev/dl/go1.23.2.linux-${architecture}.tar.gz
+wget -O go_tar.tar.gz https://go.dev/dl/go1.23.4.linux-${architecture}.tar.gz
 sudo tar -C /usr/local -xzf go_tar.tar.gz
 export PATH=${PATH}:/usr/local/go/bin
 #Write gcsfuse and go version to log file
@@ -199,7 +121,7 @@ go version |& tee -a ~/logs.txt
 
 # Clone and checkout gcsfuse repo
 export PATH=${PATH}:/usr/local/go/bin
-git clone https://github.com/vipnydav/gcsfuse |& tee -a ~/logs.txt
+git clone https://github.com/googlecloudplatform/gcsfuse |& tee -a ~/logs.txt
 cd gcsfuse
 
 # Installation of crcmod is working through pip only on rhel and centos.
@@ -209,14 +131,6 @@ then
     # install python3-setuptools tools and python3-pip
     sudo yum -y install gcc python3-devel python3-setuptools redhat-rpm-config
     sudo yum -y install python3-pip
-    # Downloading composite object requires integrity checking with CRC32c in gsutil.
-    # it requires to install crcmod.
-    pip3 install --require-hashes -r tools/cd_scripts/requirements.txt --user
-elif grep -iq sles details.txt;
-then
-    # install python3-setuptools tools and python3-pip
-    sudo zypper install -y gcc python3-devel python3-setuptools redhat-rpm-config
-    sudo zypper install -y python3-pip
     # Downloading composite object requires integrity checking with CRC32c in gsutil.
     # it requires to install crcmod.
     pip3 install --require-hashes -r tools/cd_scripts/requirements.txt --user
@@ -258,7 +172,7 @@ TEST_DIR_NON_PARALLEL=(
 # Create a temporary file to store the log file name.
 TEST_LOGS_FILE=$(mktemp)
 
-INTEGRATION_TEST_TIMEOUT=180m
+INTEGRATION_TEST_TIMEOUT=240m
 
 function run_non_parallel_tests() {
   local exit_code=0
@@ -371,6 +285,10 @@ function run_e2e_tests_for_hns_bucket(){
    return 0
 }
 
+function run_e2e_tests_for_emulator() {
+  ./tools/integration_tests/emulator_tests/emulator_tests.sh $RUN_E2E_TESTS_ON_PACKAGE
+}
+
 function gather_test_logs() {
   readarray -t test_logs_array < "$TEST_LOGS_FILE"
   rm "$TEST_LOGS_FILE"
@@ -399,6 +317,12 @@ echo "Running integration tests for FLAT bucket..."
 run_e2e_tests_for_flat_bucket &
 e2e_tests_flat_bucket_pid=$!
 
+run_e2e_tests_for_emulator &
+e2e_tests_emulator_pid=$!
+
+wait $e2e_tests_emulator_pid
+e2e_tests_emulator_status=$?
+
 wait $e2e_tests_flat_bucket_pid
 e2e_tests_flat_bucket_status=$?
 
@@ -423,5 +347,14 @@ else
     touch success-hns.txt
     gsutil cp success-hns.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
 fi
-gsutil cp ~/logs-hns.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
+
+if [ $e2e_tests_emulator_status != 0 ];
+then
+    echo "Test failures detected in emulator based tests." &>> ~/logs-emulator.txt
+else
+    touch success-emulator.txt
+    gsutil cp success-emulator.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
+fi
+
+gsutil cp ~/logs-emulator.txt gs://gcsfuse-release-packages/v$(sed -n 1p ~/details.txt)/$(sed -n 3p ~/details.txt)/
 '
