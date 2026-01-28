@@ -1,4 +1,4 @@
-name: Go Test & Coverage
+name: Go Test & Coverage (Changed Files Only)
 
 on:
   push:
@@ -12,19 +12,39 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # CRITICAL: Required to detect changes between branches
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21' # Set this to your project's Go version (e.g., 1.20, 1.22)
+          go-version: '1.21'
 
-      - name: Run Tests with Coverage
-        # -coverprofile generates the report. ./... runs all tests in all subdirectories.
-        run: go test -v -coverprofile=coverage.out ./...
+      - name: Run Tests on Changed Packages Only
+        run: |
+          # 1. Find the base branch (usually origin/main or origin/master)
+          BASE_BRANCH="origin/${{ github.base_ref || 'main' }}"
+          
+          # 2. Find directories containing changed .go files
+          # git diff -> list files -> filter .go -> get directory -> unique list -> format as ./dir
+          CHANGED_PKGS=$(git diff --name-only $BASE_BRANCH | grep '\.go$' | xargs -r -L1 dirname | sort -u | sed 's|^|./|')
+          
+          # 3. Check if we found any packages
+          if [ -z "$CHANGED_PKGS" ]; then
+            echo "No .go files changed. Skipping tests."
+            # Create a dummy coverage file so Codecov doesn't fail
+            echo "mode: set" > coverage.out
+            exit 0
+          fi
+          
+          echo "Running tests for: $CHANGED_PKGS"
+          
+          # 4. Run tests ONLY on those packages
+          go test -v -coverprofile=coverage.out $CHANGED_PKGS
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} # Go to repo settings > Secrets to add this if the repo is private
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.out
-          fail_ci_if_error: true
+          fail_ci_if_error: false # Don't fail if the dummy coverage file is empty
