@@ -45,27 +45,6 @@ jobs:
         build_gcsfuse . /tmp ${GITHUB_SHA}
     - name: Test all
       run: CGO_ENABLED=0 go test -p 1 -count 1 -covermode=atomic -coverprofile=coverage.out -coverpkg=./... -v -skip `cat flaky_tests.lst | go run tools/scripts/skip_tests/main.go` `go list ./...`
-    - name: Generate patch coverage report
-      run: |
-        diff-cover coverage.out \
-          --compare-branch origin/main \
-          --fail-under 100 \
-          --json-report diff-cover.json \
-          --html-report diff-cover.html
-    - name: Annotate uncovered lines in PR
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          reviewdog -f=diff-cover \
-            -name="Go Patch Coverage" \
-            -reporter=github-pr-check \
-            -level=error < diff-cover.json
-
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v4
-        with:
-          name: patch-coverage-report
-          path: diff-cover.html
     - name: Cache RaceDetector Test
       run: go test -p 1 -count 1 -v -race -skip `cat flaky_tests.lst | go run tools/scripts/skip_tests/main.go` ./internal/cache/...
     - name: Upload coverage reports to Codecov

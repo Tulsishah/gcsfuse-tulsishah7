@@ -1,0 +1,107 @@
+name: Go Patch Coverage (Presubmit)
+
+on:
+  pull_request:
+
+jobs:
+  patch-coverage:
+    runs-on: ubuntu-latest
+
+    # Fail the check but do NOT block merge
+    continue-on-error: true
+
+    steps:
+      # --------------------------------------------------
+      # Checkout full history (required for diff)
+      # --------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # --------------------------------------------------
+      # Setup Go
+      # --------------------------------------------------
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      # --------------------------------------------------
+      # Install tools
+      # --------------------------------------------------
+      - name: Install tools
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install diff-cover
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+          go install github.com/jandelgado/gcov2lcov@latest
+
+      # --------------------------------------------------
+      # Fetch base branch explicitly
+      # --------------------------------------------------
+      - name: Fetch base branch
+        run: |
+          git fetch origin ${{ github.base_ref }}
+
+      # --------------------------------------------------
+      # Detect changed Go files
+      # --------------------------------------------------
+      - name: Detect changed Go files
+        run: |
+          CHANGED_GO_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.go$' || true)
+          echo "Changed Go files:"
+          echo "$CHANGED_GO_FILES"
+
+          if [ -z "$CHANGED_GO_FILES" ]; then
+            echo "NO_GO_CHANGES=true" >> $GITHUB_ENV
+          else
+            echo "NO_GO_CHANGES=false" >> $GITHUB_ENV
+          fi
+
+      # --------------------------------------------------
+      # Run FULL test coverage (important for correct mapping)
+      # --------------------------------------------------
+      - name: Run Go tests with coverage
+        if: env.NO_GO_CHANGES == 'false'
+        run: |
+          go test ./... -coverprofile=coverage.out -count=1
+
+      # --------------------------------------------------
+      # Convert Go coverage → LCOV (safe & stable)
+      # --------------------------------------------------
+      - name: Convert coverage to lcov
+        if: env.NO_GO_CHANGES == 'false'
+        run: |
+          gcov2lcov -in coverage.out -out coverage.lcov
+
+      # --------------------------------------------------
+      # Patch coverage + HTML report
+      # --------------------------------------------------
+      - name: Patch coverage
+        if: env.NO_GO_CHANGES == 'false'
+        run: |
+          diff-cover coverage.lcov \
+            --compare-branch origin/${{ github.base_ref }} \
+            --show-uncovered \
+            --fail-under 100 \
+            --format html:diff-coverage.html \
+            --exclude "**/*_test.go" "**/mock_*" "**/*.pb.go"
+
+      # --------------------------------------------------
+      # Upload HTML report
+      # --------------------------------------------------
+      - name: Upload patch coverage report
+        if: env.NO_GO_CHANGES == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: patch-coverage-report
+          path: diff-coverage.html
+
+      # --------------------------------------------------
+      # No Go changes
+      # --------------------------------------------------
+      - name: No Go changes
+        if: env.NO_GO_CHANGES == 'true'
+        run: echo "No Go files changed — skipping patch coverage"
