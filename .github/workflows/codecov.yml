@@ -4,7 +4,7 @@ coverage:
     patch:
       default:
         target: 100%  # The goal for new lines
-        informational: true # Shows status but won't block merge
+        informational: false # Shows status but won't block merge
 
 comment:
   layout: "diff"      # <--- Only shows the Diff/Patch coverage in the PR comment
