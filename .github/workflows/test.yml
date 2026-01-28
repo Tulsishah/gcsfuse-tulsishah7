@@ -47,4 +47,4 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.out
-          fail_ci_if_error: false # Don't fail if the dummy coverage file is empty
+          # fail_ci_if_error: false # Don't fail if the dummy coverage file is empty
