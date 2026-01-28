@@ -1,21 +1,30 @@
-name: CI
+name: Go Test & Coverage
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      # Example: Run your tests with coverage generation
-      # (Replace this line with your actual test command)
-      - name: Run Tests
-        run: npm test -- --coverage 
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # The Step that validates the coverage
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21' # Set this to your project's Go version (e.g., 1.20, 1.22)
+
+      - name: Run Tests with Coverage
+        # -coverprofile generates the report. ./... runs all tests in all subdirectories.
+        run: go test -v -coverprofile=coverage.out ./...
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} # Required for private repos
+          token: ${{ secrets.CODECOV_TOKEN }} # Go to repo settings > Secrets to add this if the repo is private
+          file: ./coverage.out
           fail_ci_if_error: true
