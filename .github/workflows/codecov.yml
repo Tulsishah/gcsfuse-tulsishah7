@@ -1,11 +1,15 @@
 coverage:
   status:
-    project: off      # <--- Disables global project coverage check
+    project: off
     patch:
       default:
-        target: 100%  # The goal for new lines
-        informational: false # Shows status but won't block merge
+        target: 100%       # Goal: 100% of new lines
+        threshold: 0%      # 0% tolerance
+        informational: false # CRITICAL: This makes the check turn RED if you fail
 
 comment:
-  layout: "diff"      # <--- Only shows the Diff/Patch coverage in the PR comment
-  hide_project_coverage: true # Hides total project coverage to reduce noise
+  layout: "diff, flags, files" # This ensures the table/diff is shown in the PR comment
+
+# This enables the visualization on GitHub
+github_checks:
+  annotations: true
