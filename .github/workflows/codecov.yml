@@ -1,7 +1,11 @@
 coverage:
   status:
-    project: off  # Optional: ignore total project coverage
+    project: off      # <--- Disables global project coverage check
     patch:
       default:
-        target: 100%     # The goal is still 100%
-        informational: true  # <--- THIS IS THE KEY CHANGE
+        target: 100%  # The goal for new lines
+        informational: true # Shows status but won't block merge
+
+comment:
+  layout: "diff"      # <--- Only shows the Diff/Patch coverage in the PR comment
+  hide_project_coverage: true # Hides total project coverage to reduce noise
