@@ -1,0 +1,21 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Example: Run your tests with coverage generation
+      # (Replace this line with your actual test command)
+      - name: Run Tests
+        run: npm test -- --coverage 
+
+      # The Step that validates the coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # Required for private repos
+          fail_ci_if_error: true

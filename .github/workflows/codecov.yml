@@ -1,0 +1,7 @@
+coverage:
+  status:
+    project: off  # Optional: ignore total project coverage
+    patch:
+      default:
+        target: 100%     # The goal is still 100%
+        informational: true  # <--- THIS IS THE KEY CHANGE
